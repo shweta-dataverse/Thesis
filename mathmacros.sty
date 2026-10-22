@@ -1,0 +1,134 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%            Identification
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{mathmacros}[2025/09/25 Suggested Math Macros]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%   Preliminary declarations
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{bm} % correct bold symbols, like \bm
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{mathrsfs}
+\RequirePackage{dsfont} % double stroke symbols like IR
+
+\RequirePackage{mathtools}
+% Only show equation numbers of referenced equations
+\mathtoolsset{showonlyrefs}
+
+
+
+%------------------------------------------------------------
+% Mathematical Formulae
+%------------------------------------------------------------
+
+\@ifclassloaded{ifacconf}{% incompatible with ifacconf
+ \typeout{Documentclass is ifacconf, command \vec is changed}%
+ % solve problem with \vec:
+ \def\@bfvec#1{\underline{#1}}
+}{%
+}
+
+% random variable
+\newcommand{\rv}[1]{\ensuremath{{\boldsymbol{\mathrm{#1}}}}}
+
+% mean of random variable
+\newcommand{\mv}[1]{{\ensuremath{\hat{\rv{#1}}}}}
+
+% Vector
+\renewcommand{\vec}[1]{\ensuremath{{\underline{#1}}}}
+
+% Random Vector
+\newcommand{\rvec}[1]{\ensuremath{{\rv{\vec{#1}}}}}
+
+% Mean
+\newcommand{\mvec}[1]{{\ensuremath{\hat{\rvec{#1}} }}}
+
+% midpoint
+\newcommand{\cvec}[1]{{\ensuremath{\vec{\hat{#1}} }}}
+
+% bar vec
+\newcommand{\bvec}[1]{{\ensuremath{\vec{\bar{#1}} }}}
+
+% random error
+\newcommand{\ervec}[1]{{\ensuremath{\tilde{\rvec{#1}} }}}
+
+% Zero vector
+\newcommand{\zero}{{\ensuremath{\vec{0}}}}
+
+
+% matrix
+\newcommand{\mat}[1]{{\ensuremath{{\mathbf{#1}}}}}
+
+
+% error covariance matrix
+\newcommand{\ermat}[1]{
+	{\ensuremath{\widetilde{\mat{#1}} }}%
+}
+
+% matrix with bar
+\newcommand{\bmat}[1]{
+	{\ensuremath{\bar{\mat{#1}} }}%
+}
+
+% ellipsoid
+\newcommand{\ellip}{{\ensuremath{\mathcal{E}}}}
+
+%------------------------------------------------------------
+% Operators
+%------------------------------------------------------------
+
+\def\T{\ensuremath{^\mathrm{T}}} % transpose
+\newcommand{\inv}{\ensuremath{^{-1}}}
+\newcommand{\invT}{\ensuremath{^{-\mathrm{T}}}}
+\newcommand{\nk}{{k+1}}
+\newcommand{\pk}{{k-1}}
+
+%------------------------------------------------------------
+% Mathematical Functions
+%------------------------------------------------------------
+
+\renewcommand{\arg}{\operatorname*{arg}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\E}{E}
+
+\DeclareMathOperator{\rank}{rank}
+
+\DeclareMathOperator{\trace}{trace}
+\DeclareMathOperator*{\Var}{Var}
+
+
+%------------------------------------------------------------
+% Abbreviations
+%------------------------------------------------------------
+
+\newcommand{\op}[1]{{\ensuremath{\operatorfont{#1}}}}
+
+\newcommand{\NewB}{\ensuremath{\mathds{R}}}
+\newcommand{\NewC}{\ensuremath{\mathds{C}}}
+\newcommand{\NewN}{\ensuremath{\mathds{N}}}
+\newcommand{\NewR}{\ensuremath{\mathds{R}}}
+\newcommand{\NewZ}{\ensuremath{\mathds{Z}}}
+\newcommand{\IR}{\NewR}
+\newcommand{\IN}{\NewN}
+\newcommand{\IZ}{\NewZ}
+\newcommand{\IC}{\NewC}
+
+
+\newcommand{\PDF}{probability density function}
+
+\newcommand{\Gauss}{{\mathcal{N}}}
+\newcommand{\Uniform}{\ensuremath{\mathcal{U}}}
+
+
